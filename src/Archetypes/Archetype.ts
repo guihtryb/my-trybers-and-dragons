@@ -2,26 +2,14 @@ import { EnergyType } from '../Energy';
 import { IArchetype } from '../Interfaces';
 
 export default abstract class Archetype implements IArchetype {
-  private readonly _special: number;
-  private readonly _cost: number;
+  readonly special: number;
+  readonly cost: number;
 
   constructor(
-    private readonly _name: string,
+    readonly name: string,
   ) {
-    this._special = 0;
-    this._cost = 0;
-  }
-
-  get name(): string {
-    return this._name;
-  }
-
-  get special(): number {
-    return this._special;
-  }
-
-  get cost(): number {
-    return this._cost;
+    this.special = 0;
+    this.cost = 0;
   }
 
   static createdArchetypeInstances():number {
