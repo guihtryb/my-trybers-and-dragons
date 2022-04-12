@@ -1,16 +1,32 @@
-// import Race from "./Race";
+import { ICreature } from '../Interfaces';
+import Race from './Race';
 
-// class Dwarf extends Race {
-//   static createdRacesInstances(/* raceName: string, max: number */): number {
-//     // const findRace = Race.racesInstances
-//     // .find((race) => race.raceName === raceName);
+export default class Dwarf extends Race implements ICreature {
+  protected _maxLifePoints = 80;
+  private static dwarfUnits = 0;
 
-//     // if (!findRace) throw new Error('Race doesn`t exist');
-//     throw new Error('Not implemented');
-//     // if (findRace.quantity > maxQuantity) throw new Error('Not implemented');
+  constructor(name: string, dexterity: number) {
+    super(name, dexterity);
+    Dwarf.increaseDwarfQuantity();
+  }
 
-//     // findRace.quantity += 1;
-    
-//     // return findRace.quantity;
-//   }
-// }
+  get maxLifePoints(): number {
+    return this._maxLifePoints;
+  }
+
+  private static increaseDwarfQuantity(): void {
+    Dwarf.validateQuantity(Dwarf.dwarfUnits, 30);
+
+    Dwarf.dwarfUnits += 1;
+  }
+
+  static createdRacesInstances(): number {
+    return Dwarf.dwarfUnits;
+  }
+
+  private static validateQuantity(currQuantity:number, maxQuantity:number) {
+    if (currQuantity === maxQuantity) {
+      throw new Error('Dwarf race has reached maximum number');
+    }
+  }
+}
