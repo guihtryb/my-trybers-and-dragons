@@ -26,7 +26,7 @@ export default class Orc extends Race implements ICreature {
 
   private static validateQuantity(currQuantity:number, maxQuantity:number) {
     if (currQuantity === maxQuantity) {
-      throw new Error('Orc race has reached maximum number');
+      throw new Error('Orc race has reached maximum quantity');
     }
   }
 }
