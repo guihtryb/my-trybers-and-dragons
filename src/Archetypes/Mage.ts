@@ -7,7 +7,9 @@ export default class Mage extends Archetype {
 
   constructor(name: string) {
     super(name);
+
     Mage.increaseMageUnits();
+
     this._energyType = 'mana';
   }
 
