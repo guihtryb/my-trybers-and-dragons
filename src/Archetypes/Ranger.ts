@@ -1,4 +1,4 @@
-import { EnergyType } from '../Energy';
+import { EnergyType } from '../Interfaces/Energy';
 import Archetype from './Archetype';
 
 export default class Ranger extends Archetype {
