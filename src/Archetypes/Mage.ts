@@ -1,4 +1,4 @@
-import { EnergyType } from '../Energy';
+import { EnergyType } from '../Interfaces/Energy';
 import Archetype from './Archetype';
 
 export default class Mage extends Archetype {
@@ -18,6 +18,8 @@ export default class Mage extends Archetype {
   }
 
   static createdArchetypeInstances(): number {
+    Mage.validateQuantity(Mage.mageUnits, 100);
+
     return Mage.mageUnits;
   }
 

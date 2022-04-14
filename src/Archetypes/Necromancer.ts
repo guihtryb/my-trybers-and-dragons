@@ -1,4 +1,4 @@
-import { EnergyType } from '../Energy';
+import { EnergyType } from '../Interfaces/Energy';
 import Archetype from './Archetype';
 
 export default class Necromancer extends Archetype {
@@ -18,6 +18,11 @@ export default class Necromancer extends Archetype {
   }
 
   static createdArchetypeInstances(): number {
+    Necromancer.validateQuantity(
+      Necromancer.necromancerUnits,
+      100,
+    );
+
     return Necromancer.necromancerUnits;
   }
 
@@ -28,7 +33,7 @@ export default class Necromancer extends Archetype {
   private static validateQuantity(
     currQuantity: number,
     maxQuantity: number,
-  ) {
+  ): Error | void {
     if (currQuantity === maxQuantity) {
       throw new Error('Necromancer archetype has reached maximum quantity');
     }

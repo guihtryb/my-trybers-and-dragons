@@ -15,6 +15,8 @@ export default class Dwarf extends Race implements ICreature {
   }
 
   private static increaseDwarfQuantity(): void {
+    Dwarf.validateQuantity(Dwarf.dwarfUnits, 100);
+
     Dwarf.dwarfUnits += 1;
   }
 

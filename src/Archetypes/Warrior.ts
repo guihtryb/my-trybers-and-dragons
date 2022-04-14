@@ -1,4 +1,4 @@
-import { EnergyType } from '../Energy';
+import { EnergyType } from '../Interfaces/Energy';
 import Archetype from './Archetype';
 
 export default class Warrior extends Archetype {
@@ -22,6 +22,8 @@ export default class Warrior extends Archetype {
   }
 
   static increaseWarriorUnits(): void {
+    Warrior.validateQuantity(Warrior.warriorUnits, 100);
+
     Warrior.warriorUnits += 1;
   }
 

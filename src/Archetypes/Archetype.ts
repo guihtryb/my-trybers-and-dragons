@@ -1,4 +1,4 @@
-import { EnergyType } from '../Energy';
+import { EnergyType } from '../Interfaces/Energy';
 import { IArchetype } from '../Interfaces';
 
 export default abstract class Archetype implements IArchetype {

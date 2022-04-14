@@ -15,6 +15,8 @@ export default class Elf extends Race implements ICreature {
   }
 
   private static increaseElfQuantity(): void {
+    Elf.validateQuantity(Elf.elfUnits, 100);
+
     Elf.elfUnits += 1;
   }
 

@@ -1,5 +1,5 @@
-import Fighter from './Fighter';
-import SimpleFighter from './SimpleFighter';
+import Fighter from '../Interfaces/Fighter';
+import SimpleFighter from '../Interfaces/SimpleFighter';
 
 export default Fighter;
 export { 
