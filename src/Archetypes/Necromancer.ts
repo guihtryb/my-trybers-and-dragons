@@ -21,13 +21,14 @@ export default class Necromancer extends Archetype {
     return Necromancer.necromancerUnits;
   }
 
-  static increaseNecromancerUnits() {
-    Necromancer.validateQuantity(Necromancer.necromancerUnits, 30);
-
+  static increaseNecromancerUnits(): void {
     Necromancer.necromancerUnits += 1;
   }
 
-  private static validateQuantity(currQuantity:number, maxQuantity:number) {
+  private static validateQuantity(
+    currQuantity: number,
+    maxQuantity: number,
+  ) {
     if (currQuantity === maxQuantity) {
       throw new Error('Necromancer archetype has reached maximum quantity');
     }

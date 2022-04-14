@@ -12,7 +12,7 @@ export default abstract class Archetype implements IArchetype {
     this.cost = 0;
   }
 
-  static createdArchetypeInstances():number {
+  static createdArchetypeInstances(): number {
     throw new Error('Not implemented');
   }
 

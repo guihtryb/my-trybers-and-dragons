@@ -21,13 +21,14 @@ export default class Warrior extends Archetype {
     return Warrior.warriorUnits;
   }
 
-  static increaseWarriorUnits() {
-    Warrior.validateQuantity(Warrior.warriorUnits, 30);
-
+  static increaseWarriorUnits(): void {
     Warrior.warriorUnits += 1;
   }
 
-  private static validateQuantity(currQuantity:number, maxQuantity:number) {
+  private static validateQuantity(
+    currQuantity: number,
+    maxQuantity: number,
+  ): Error | void {
     if (currQuantity === maxQuantity) {
       throw new Error('Warrior archetype has reached maximum quantity');
     }

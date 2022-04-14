@@ -21,13 +21,14 @@ export default class Mage extends Archetype {
     return Mage.mageUnits;
   }
 
-  static increaseMageUnits() {
-    Mage.validateQuantity(Mage.mageUnits, 30);
-
+  static increaseMageUnits(): void {
     Mage.mageUnits += 1;
   }
 
-  private static validateQuantity(currQuantity:number, maxQuantity:number) {
+  private static validateQuantity(
+    currQuantity: number,
+    maxQuantity: number,
+  ): Error | void {
     if (currQuantity === maxQuantity) {
       throw new Error('Mage archetype has reached maximum quantity');
     }

@@ -21,13 +21,14 @@ export default class Ranger extends Archetype {
     return Ranger.rangerUnits;
   }
 
-  static increaseRangerUnits() {
-    Ranger.validateQuantity(Ranger.rangerUnits, 30);
-
+  static increaseRangerUnits(): void {
     Ranger.rangerUnits += 1;
   }
 
-  private static validateQuantity(currQuantity:number, maxQuantity:number) {
+  private static validateQuantity(
+    currQuantity: number,
+    maxQuantity: number,
+  ): Error | void {
     if (currQuantity === maxQuantity) {
       throw new Error('Ranger archetype has reached maximum quantity');
     }
