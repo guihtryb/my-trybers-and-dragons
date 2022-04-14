@@ -22,6 +22,8 @@ export default class Warrior extends Archetype {
   }
 
   static increaseWarriorUnits(): void {
+    Warrior.validateQuantity(Warrior.warriorUnits, 100);
+
     Warrior.warriorUnits += 1;
   }
 

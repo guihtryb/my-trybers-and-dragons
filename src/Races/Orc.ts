@@ -15,6 +15,8 @@ export default class Orc extends Race implements ICreature {
   }
 
   private static increaseOrcQuantity(): void {
+    Orc.validateQuantity(Orc.orcUnits, 100);
+
     Orc.orcUnits += 1;
   }
 

@@ -18,6 +18,8 @@ export default class Mage extends Archetype {
   }
 
   static createdArchetypeInstances(): number {
+    Mage.validateQuantity(Mage.mageUnits, 100);
+
     return Mage.mageUnits;
   }
 

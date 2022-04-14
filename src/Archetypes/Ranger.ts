@@ -22,6 +22,8 @@ export default class Ranger extends Archetype {
   }
 
   static increaseRangerUnits(): void {
+    Ranger.validateQuantity(Ranger.rangerUnits, 100);
+
     Ranger.rangerUnits += 1;
   }
 

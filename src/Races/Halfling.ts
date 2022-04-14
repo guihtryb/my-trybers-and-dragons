@@ -15,6 +15,8 @@ export default class Halfling extends Race implements ICreature {
   }
 
   private static increaseHalflingQuantity(): void {
+    Halfling.validateQuantity(Halfling.halflingUnits, 100);
+
     Halfling.halflingUnits += 1;
   }
 
