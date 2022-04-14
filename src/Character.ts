@@ -90,7 +90,7 @@ export default class Character implements Fighter {
     return { ...this._energy };
   }
 
-  public set amount(value: number) {
+  private set amount(value: number) {
     this._energy.amount = value;
   }
 
@@ -100,8 +100,9 @@ export default class Character implements Fighter {
 
   special(enemy: Fighter): void {
     const power = getRandomInt(1, this.amount + 1);
-    
+
     for (let index = 0; index < power; index += 1) {
+      this.amount -= 1;
       const powerAttack = this.strength + getRandomInt(this.level * 2, 100);
       enemy.receiveDamage(powerAttack);
     }
