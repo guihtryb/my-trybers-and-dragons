@@ -15,8 +15,6 @@ export default class Orc extends Race implements ICreature {
   }
 
   private static increaseOrcQuantity(): void {
-    Orc.validateQuantity(Orc.orcUnits, 30);
-
     Orc.orcUnits += 1;
   }
 
@@ -24,7 +22,10 @@ export default class Orc extends Race implements ICreature {
     return Orc.orcUnits;
   }
 
-  private static validateQuantity(currQuantity:number, maxQuantity:number) {
+  private static validateQuantity(
+    currQuantity: number,
+    maxQuantity: number,
+  ): Error | void {
     if (currQuantity === maxQuantity) {
       throw new Error('Orc race has reached maximum quantity');
     }

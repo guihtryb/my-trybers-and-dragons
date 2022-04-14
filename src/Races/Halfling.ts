@@ -15,8 +15,6 @@ export default class Halfling extends Race implements ICreature {
   }
 
   private static increaseHalflingQuantity(): void {
-    Halfling.validateQuantity(Halfling.halflingUnits, 30);
-
     Halfling.halflingUnits += 1;
   }
 
@@ -24,7 +22,10 @@ export default class Halfling extends Race implements ICreature {
     return Halfling.halflingUnits;
   }
 
-  private static validateQuantity(currQuantity:number, maxQuantity:number) {
+  private static validateQuantity(
+    currQuantity: number,
+    maxQuantity: number,
+  ): Error | void {
     if (currQuantity === maxQuantity) {
       throw new Error('Halfling race has reached maximum quantity');
     }

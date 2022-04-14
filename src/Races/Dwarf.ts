@@ -15,8 +15,6 @@ export default class Dwarf extends Race implements ICreature {
   }
 
   private static increaseDwarfQuantity(): void {
-    Dwarf.validateQuantity(Dwarf.dwarfUnits, 30);
-
     Dwarf.dwarfUnits += 1;
   }
 
@@ -24,7 +22,10 @@ export default class Dwarf extends Race implements ICreature {
     return Dwarf.dwarfUnits;
   }
 
-  private static validateQuantity(currQuantity:number, maxQuantity:number) {
+  private static validateQuantity(
+    currQuantity: number,
+    maxQuantity: number,
+  ): Error | void {
     if (currQuantity === maxQuantity) {
       throw new Error('Dwarf race has reached maximum quantity');
     }

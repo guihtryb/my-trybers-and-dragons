@@ -15,8 +15,6 @@ export default class Elf extends Race implements ICreature {
   }
 
   private static increaseElfQuantity(): void {
-    Elf.validateQuantity(Elf.elfUnits, 40);
-
     Elf.elfUnits += 1;
   }
 
@@ -24,7 +22,10 @@ export default class Elf extends Race implements ICreature {
     return Elf.elfUnits;
   }
 
-  private static validateQuantity(currQuantity:number, maxQuantity:number) {
+  private static validateQuantity(
+    currQuantity: number,
+    maxQuantity: number,
+  ): Error | void {
     if (currQuantity === maxQuantity) {
       throw new Error('Elf race has reached maximum quantity');
     }
