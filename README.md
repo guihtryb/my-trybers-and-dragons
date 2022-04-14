@@ -380,3 +380,66 @@ export default class Character implements Fighter {
 ## 8th challange
 
 - Create monsters, bestial creatures that only attack other beings.
+
+### How i solve:
+
+- Creating a class Monster that implements a SimpleFighter interface;
+- Refactoring the Character class, so it can also attack SimpleFighters;
+
+```
+import { SimpleFighter } from './Fighter';
+
+export default class Monster implements SimpleFighter {
+  constructor(
+    private _lifePoints: number = 85,
+    private readonly _strength: number = 63,
+  ) {
+  }
+
+  public get lifePoints(): number {
+    return this._lifePoints;
+  }
+
+  private set lifePoints(value) {
+    this._lifePoints = value;
+  }
+
+  public get strength(): number {
+    return this._strength;
+  }
+
+  attack(enemy: SimpleFighter): void {
+    enemy.receiveDamage(this.strength);
+  }
+
+  receiveDamage(attackPoints: number): void | number {
+    this.lifePoints -= attackPoints;
+
+    if (this.lifePoints <= 0) this.lifePoints = -1;
+
+    return this.lifePoints;
+  }
+}
+```
+
+```
+export default class Character implements Fighter {
+  private readonly _race: Race;
+  private readonly _archetype: Archetype;
+  private maxLifePoints: number;
+  private _lifePoints: number;
+  private _strength: number;
+  private _defense: number;
+  private _dexterity: number;
+  private _energy: Energy;
+  private _level: number;
+
+  constructor(
+    private _name: string,
+    characterRace: Race = new Elf(_name, 10),
+...
+  attack(enemy: SimpleFighter): void { 
+    enemy.receiveDamage(this.strength);
+  }
+
+```
