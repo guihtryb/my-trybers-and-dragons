@@ -329,11 +329,13 @@ export default class Character implements Fighter {
   }
 
   special(enemy: Fighter): void {
-    const power = getRandomInt(1, this.amount + 1);
-
+    const power = getRandomInt(1, this.energy.amount + 1);
+ 
     for (let index = 0; index < power; index += 1) {
-      this.amount -= 1;
+      this.amount = this.energy.amount - 1;
+ 
       const powerAttack = this.strength + getRandomInt(this.level * 2, 100);
+ 
       enemy.receiveDamage(powerAttack);
     }
   }
