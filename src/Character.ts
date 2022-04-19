@@ -98,7 +98,7 @@ export default class Character implements Fighter {
     enemy.receiveDamage(this.strength);
   }
 
-  special(enemy: Fighter): void {
+  special(enemy: SimpleFighter): void {
     const power = getRandomInt(1, this.energy.amount + 1);
  
     for (let index = 0; index < power; index += 1) {
